@@ -11,4 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag casualsimulation/rpi3-mongodb3:$(date +%s) --tag casualsimulation/rpi3-mongodb3:latest
+      run: docker build . --file Dockerfile --tag casualsimulation/rpi-mongodb3:$(date +%s) --tag casualsimulation/rpi-mongodb3:latest
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: casualsimulation/rpi-mongodb3
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
