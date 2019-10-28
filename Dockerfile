@@ -1,6 +1,5 @@
 FROM andresvidal/rpi3-mongodb3:latest
 
-COPY startup.sh /startup.sh
-RUN ["chmod", "+x", "/startup.sh"]
+COPY startup.sh /startup.s
 
 CMD ["/startup.sh"]
