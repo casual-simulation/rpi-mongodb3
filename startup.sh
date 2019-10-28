@@ -11,7 +11,7 @@ if [ -e /data/db/mongod.lock ]; then
             echo "Repair Succeeded."
         else
             echo "Repair Unsucessful. Needs manual repair."
-            sudo mv /data/db/mongod.lock /data/db/mongod.lock.bad
+            sudo mv /data/db "/data/db-needs-repair-$(date +%s)"
         fi
     else
         echo "Mongod is running. No further action needed."
